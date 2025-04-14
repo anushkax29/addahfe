@@ -3,7 +3,7 @@ import { globalContext } from './globalContext'
 import { Navigate } from 'react-router';
 
 const ProtectedRoutes = ({children}) => {
-    const {auth} = React.useContext(globalContext);
+  const {auth} = React.useContext(globalContext);
 
   return auth ? children : <Navigate to={'/login'} replace/>
 }

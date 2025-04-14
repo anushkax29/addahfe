@@ -12,7 +12,7 @@ const Login = () => {
     e.preventDefault();
     if(email && password){
       if(email === window.localStorage.getItem("email") && password === window.localStorage.getItem("password")){
-        nav('/detail')
+        nav('/details')
       }
       else alert("Invalid Credentials!")
     }

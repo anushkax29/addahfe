@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './signup.css'; 
 import { globalContext } from './globalContext';
+import { useNavigate } from 'react-router';
 
 const Signup = () => {
+  const nav = useNavigate()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confPassword, setConfPassword] = useState('');
@@ -15,7 +17,8 @@ const Signup = () => {
       if(password === confPassword){
         window.localStorage.setItem("email", email);
         window.localStorage.setItem("password", password);
-        setAuth(true)
+        setAuth(true);
+        nav('/details')
       }
       else alert("Passwords don't match!")
     }
