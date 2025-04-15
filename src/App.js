@@ -9,6 +9,7 @@ import {Routes, Route} from 'react-router';
 import { globalContext } from './components/globalContext';
 import Details from './components/Details';
 
+import DisplayFit from './components/DisplayFit'
 import ProtectedRoutes from './components/ProtectedRoutes';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path='/upload-photo' element={<UploadPhoto />} />
         <Route path='/login' element={<Login />}/>
         <Route path='/signup' element={<Signup />}/>
+        <Route path='/display-fit' element={<DisplayFit />}/>
         <Route path='/details' element = {
           <Details />
           } />
