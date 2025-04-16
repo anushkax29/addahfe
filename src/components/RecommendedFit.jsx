@@ -5,6 +5,7 @@ const RecommendedFit = () => {
   const [data, setData] = React.useState([]);
 
   const url = "https://api.escuelajs.co/api/v1/products?limit=10";
+  //const url = "https://fakestoreapi.com/products/category/women's%20clothing";
 
   React.useEffect(() => {
     async function getData() {
@@ -28,7 +29,7 @@ const RecommendedFit = () => {
 
   return (
     <div className="recommended-fit">
-      <h1 className="fit-heading">Recommended Fits</h1>
+      <h1 className="fit-heading">Current Affairs</h1>
       <div className="fit-grid">
         {eleList}
       </div>

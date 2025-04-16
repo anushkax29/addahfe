@@ -10,7 +10,7 @@
   }
   
   .upload-heading {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     color: #4d0101;
     margin-bottom: 1.5rem;
   }
@@ -63,5 +63,14 @@
   .return-button:hover {
     background-color: #2d0000;
     transform: translateY(-2px);
+  }
+  
+  .error-message {
+    color: #ff4444;
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 5px;
+    background: #ffebee;
+    text-align: center;
   }
   

@@ -1,11 +1,27 @@
-import React from 'react'
+import React from 'react';
+import { useLocation } from 'react-router-dom'; // ✅ Correct import
 
 const DisplayFit = () => {
-  return (
-    <div>
-        <h1>here we will display the fit</h1>
-    </div>
-  )
-}
+  const { state } = useLocation(); // ✅ Safely gets navigation state
 
-export default DisplayFit
+  return (
+    <div className="result-container">
+      <h2>Your Perfect Outfit</h2>
+      {state?.data ? (
+        <div>
+          <img 
+            src={`http://localhost:5000/${state.data.image_path}`} 
+            alt="Uploaded outfit"
+            style={{ maxWidth: '500px', height: 'auto' }}
+          />
+          <p><strong>Occasion:</strong> {state.data.occasion}</p>
+          <p><strong>Weather:</strong> {state.data.weather}</p>
+        </div>
+      ) : (
+        <p>No outfit data found.</p>
+      )}
+    </div>
+  );
+};
+
+export default DisplayFit;
