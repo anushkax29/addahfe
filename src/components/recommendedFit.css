@@ -1,0 +1,57 @@
+.recommended-fit {
+    padding: 2rem;
+    background-color: #f8f8f8;
+    min-height: 100vh;
+  }
+  
+  .fit-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #333;
+  }
+  
+  .fit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+  }
+  
+  .fit-card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    width: 100%;
+    max-width: 240px;
+    text-align: center;
+  }
+  
+  .fit-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .fit-image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+  }
+  
+  .fit-info {
+    padding: 1rem;
+  }
+  
+  .fit-info h3 {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    color: #222;
+  }
+  
+  .fit-info p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  

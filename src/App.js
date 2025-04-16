@@ -10,6 +10,7 @@ import { globalContext } from './components/globalContext';
 import Details from './components/Details';
 
 import DisplayFit from './components/DisplayFit'
+import RecommendedFit from './components/RecommendedFit';
 import ProtectedRoutes from './components/ProtectedRoutes';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path='/login' element={<Login />}/>
         <Route path='/signup' element={<Signup />}/>
         <Route path='/display-fit' element={<DisplayFit />}/>
+        <Route path='/recommended-fit' element={<RecommendedFit />}/>
         <Route path='/details' element = {
           <Details />
           } />

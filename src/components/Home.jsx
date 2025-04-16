@@ -10,6 +10,10 @@ export default function Home() {
     e.preventDefault();
     nav('/upload-photo');
   }
+  function navigateToRandomFit(e) {
+    e.preventDefault();
+    nav('/recommended-fit');
+  }
 
   return (
     <main className="homepage">
@@ -24,6 +28,8 @@ export default function Home() {
         {isMenuOpen && (
           <div className="dropdown-menu">
             <p onClick={navigation}>Upload Photo</p>
+            <br />
+            <p onClick={navigateToRandomFit}>Our Recommended Fits</p>
           </div>
         )}
       </div>
