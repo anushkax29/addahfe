@@ -8,13 +8,18 @@ const RecommendedFit = () => {
   //const url = "https://fakestoreapi.com/products/category/women's%20clothing";
 
   React.useEffect(() => {
-    async function getData() {
-      const values = await fetch(url);
-      const respJson = await values.json();
-      setData(respJson);
-      console.log(respJson);
-    }
-    getData();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal');
+        }
+      });
+    }, { threshold: 0.1 });
+  
+    const cards = document.querySelectorAll('.fit-card');
+    cards.forEach(card => observer.observe(card));
+  
+    return () => cards.forEach(card => observer.unobserve(card));
   }, []);
 
   const eleList = data.map((item) => (

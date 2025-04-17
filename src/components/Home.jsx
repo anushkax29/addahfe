@@ -37,7 +37,7 @@ export default function Home() {
       {/* Main content */}
       <div className="content">
         <h1 className="title">Adaah</h1>
-        <p className="subtitle">Created By. The Mody-ians.</p>
+        <p className="subtitle">Created By. HAVN.</p>
         <button className="cta" onClick={navigation}>Get Started</button>
       </div>
     </main>

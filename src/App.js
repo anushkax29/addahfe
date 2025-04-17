@@ -11,7 +11,7 @@ import Details from './components/Details';
 import DisplayFit from './components/DisplayFit';
 import RecommendedFit from './components/RecommendedFit';
 import ProtectedRoutes from './components/ProtectedRoutes';
-import ColorRecommender from './components/ColorRecommendar';
+import ColorRecommendar from './components/ColorRecommendar';
 
 function App() {
   const [auth, setAuth] = React.useState(false);
