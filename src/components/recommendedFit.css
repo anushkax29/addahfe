@@ -14,31 +14,31 @@
   text-shadow: 1px 1px #f8c8dc;
 }
 
+/* Responsive grid for different screen sizes */
 .fit-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 2rem;
   justify-items: center;
 }
 
+/* Card styling */
 .fit-card {
   background: #fffafc;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
   width: 100%;
-  max-width: 250px;
-  text-align: center;
-  position: relative;
-  opacity: 1; /* Ensure it's visible by default */
-  transform: translateY(30px); /* Set it below its normal position for animation */
+  max-width: 280px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  opacity: 1;
+  transform: translateY(30px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .fit-card.reveal {
-  opacity: 1; /* The card is fully visible */
-  transform: translateY(0); /* Move the card to its normal position */
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .fit-card:hover {
@@ -67,4 +67,49 @@
   font-size: 0.95rem;
   color: #555;
   line-height: 1.4;
+}
+
+/* --- Responsive tweaks --- */
+
+/* Small tablets */
+@media (max-width: 768px) {
+  .fit-heading {
+    font-size: 2rem;
+  }
+
+  .fit-grid {
+    gap: 1.5rem;
+  }
+
+  .fit-card {
+    max-width: 90%;
+  }
+
+  .fit-image {
+    height: 200px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .recommended-fit {
+    padding: 2rem 1rem;
+  }
+
+  .fit-heading {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .fit-image {
+    height: 180px;
+  }
+
+  .fit-info h3 {
+    font-size: 1rem;
+  }
+
+  .fit-info p {
+    font-size: 0.9rem;
+  }
 }

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router"
 import axios from "axios"
-import "./GetStarted.css"
+import "./uploadPhoto.css"
 
 const UploadPhoto = () => {
   const navigate = useNavigate()
@@ -115,7 +115,7 @@ const UploadPhoto = () => {
   }
 
   return (
-    <div>
+    <div className="whole">
       <div className="top-nav">      
         <button onClick={handleLogin}>Log In</button>
         <button onClick={handleSignup}>Sign Up</button> 
