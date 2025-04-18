@@ -126,7 +126,7 @@ const UploadPhoto = () => {
         <div className="right-panel">
           <div className="welcome-section">
             <h2 className="welcome-title">
-              Welcome to Addah <span className="wave-emoji">👋</span>
+              Welcome to Addah <span className="heart-emoji">💗</span>
             </h2>
 
             <div className="file-upload-container">
@@ -181,7 +181,7 @@ const UploadPhoto = () => {
             {error && <div className="error-message">{error}</div>}
 
             <button className="get-look-button" onClick={handleSubmit} disabled={loading}>
-              <span className="sparkle">✨</span> {loading ? "Processing..." : "Get My Look"}
+              <span className="sparkle">✨</span> {loading ? "Processing..." : "Wait for the Magic!"}
             </button>
           </div>
 

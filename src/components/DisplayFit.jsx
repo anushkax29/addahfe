@@ -1,4 +1,6 @@
 import React from 'react';
+import './displayfit.css';
+
 import { useLocation } from 'react-router'; 
 const DisplayFit = () => {
   const { state } = useLocation(); 
