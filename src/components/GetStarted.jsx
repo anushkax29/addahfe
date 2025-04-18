@@ -48,6 +48,7 @@ const GetStarted = () => {
     } finally {
       setLoading(false)
     }
+    
   }
 
   const navigateToRandomFit = (e) => {

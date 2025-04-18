@@ -1,8 +1,7 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom'; // ✅ Correct import
-
+import { useLocation } from 'react-router'; 
 const DisplayFit = () => {
-  const { state } = useLocation(); // ✅ Safely gets navigation state
+  const { state } = useLocation(); 
 
   return (
     <div className="result-container">

@@ -8,20 +8,16 @@ const RecommendedFit = () => {
   //const url = "https://fakestoreapi.com/products/category/women's%20clothing";
 
   React.useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal');
-        }
-      });
-    }, { threshold: 0.1 });
-  
-    const cards = document.querySelectorAll('.fit-card');
-    cards.forEach(card => observer.observe(card));
-  
-    return () => cards.forEach(card => observer.unobserve(card));
+    async function getData() {
+      const dataJson = await fetch(url);
+      const resp = await dataJson.json();
+      console.log(resp)
+      setData(resp)
+    }
+    getData()
   }, []);
 
+  
   const eleList = data.map((item) => (
     <div className="fit-card" key={item.id}>
       <img src={item.images[0]} alt={item.title} className="fit-image" />
