@@ -18,7 +18,7 @@ function App() {
   const [auth, setAuth] = React.useState(false);
 
   return (
-    <div>
+    <globalContext.Provider value={{auth, setAuth}}>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/upload-photo' element={<UploadPhoto />} />
@@ -26,14 +26,14 @@ function App() {
         <Route path='/signup' element={<Signup />} />
         <Route path='/display-fit' element={<DisplayFit />} />
         <Route path='/recommended-fit' element={<RecommendedFit />} />
-        <Route path='/details' element={<Details />} />
+        <Route path='/details/:name' element={<Details />} />
         <Route path='*' element={<Error />} />
         <Route path='/color-analysis' element={<ColorRecommendar />} />
         <Route path='/get-started' element={<GetStarted />} />
         
       </Routes>
   
-    </div>
+    </globalContext.Provider>
   );
 }
 

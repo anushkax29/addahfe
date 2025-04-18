@@ -31,23 +31,25 @@ const UploadPhoto = () => {
     formData.append("weather", weather)
     formData.append("occasion", occasion)
 
-    try {
-      const response = await axios.post("http://localhost:5000/upload", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
+    // try {
+    //   const response = await axios.post("http://localhost:5000/upload", formData, {
+    //     headers: {
+    //       "Content-Type": "multipart/form-data",
+    //     },
+    //   })
 
-      if (response.data.success) {
-        navigate("/display-fit", { state: { data: response.data.data } })
-      } else {
-        setError(response.data.error || "Upload failed")
-      }
-    } catch (err) {
-      setError(err.response?.data?.error || "Server error")
-    } finally {
-      setLoading(false)
-    }
+    //   if (response.data.success) {
+    //     navigate("/display-fit", { state: { data: response.data.data } })
+    //   } else {
+    //     setError(response.data.error || "Upload failed")
+    //   }
+    // } catch (err) {
+    //   setError(err.response?.data?.error || "Server error")
+    // } finally {
+    //   setLoading(false)
+    // }
+    navigate('/display-fit')
+
   }
 
   const navigateToRandomFit = (e) => {
@@ -75,8 +77,21 @@ const UploadPhoto = () => {
     setIsOccasionOpen(false)
   }
 
+  function handleLogin(){
+    navigate('/login')
+  }
+  function handleSignup(){
+    navigate('/signup')
+  }
+  function handleUserDetails(){
+
+  }
+
   return (
     <div className="app-container">
+      <button onClick={handleLogin}>Log In</button>
+      <button onClick={handleSignup}>Sign Up</button> 
+      <button onClick={handleUserDetails}>User Details</button> 
       <div className="right-panel">
         <div className="welcome-section">
           <h2 className="welcome-title">

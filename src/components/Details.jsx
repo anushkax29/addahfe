@@ -1,8 +1,10 @@
-import React from 'react'
+import { useParams } from "react-router"
+
 
 const Details = () => {
+  const {name} = useParams()
   return (
-    <div>Details</div>
+    <div>Details for :{name}</div>
   )
 }
 
