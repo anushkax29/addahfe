@@ -5,7 +5,7 @@ import { useNavigate } from "react-router"
 import axios from "axios"
 import "./GetStarted.css"
 
-const UploadPhoto = () => {
+const GetStarted = () => {
   const navigate = useNavigate()
   const [file, setFile] = useState(null)
   const [weather, setweather] = useState("")
@@ -153,4 +153,4 @@ const UploadPhoto = () => {
   )
 }
 
-export default UploadPhoto
+export default GetStarted

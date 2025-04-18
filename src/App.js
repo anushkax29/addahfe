@@ -12,6 +12,7 @@ import DisplayFit from './components/DisplayFit';
 import RecommendedFit from './components/RecommendedFit';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import ColorRecommendar from './components/ColorRecommendar';
+import GetStarted from './components/GetStarted'
 
 function App() {
   const [auth, setAuth] = React.useState(false);
@@ -28,6 +29,7 @@ function App() {
         <Route path='/details' element={<Details />} />
         <Route path='*' element={<Error />} />
         <Route path='/color-analysis' element={<ColorRecommendar />} />
+        <Route path='/get-started' element={<GetStarted />} />
         
       </Routes>
   
