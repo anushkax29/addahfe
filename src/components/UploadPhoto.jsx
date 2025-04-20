@@ -17,8 +17,9 @@ const UploadPhoto = () => {
 
     const [data, setData] = useState([]);
   
-    const url = "https://api.escuelajs.co/api/v1/products?limit=10";
+    const url = "https://api.escuelajs.co/api/v1/products?limit=2";
     //const url = "https://fakestoreapi.com/products/category/women's%20clothing";
+
   
     useEffect(() => {
       async function getData() {
@@ -32,10 +33,14 @@ const UploadPhoto = () => {
 
     const eleList = data.map((item) => (
       <div className="fit-card" key={item.id}>
-        <img src={item.images[0]} alt={item.title} className="fit-image" />
-        <div className="fit-info">
-          <h3>{item.title}</h3>
-          <p>${item.price}</p>
+        <div className="trending-item">
+          <img src={item.images[0]} alt={item.title} className="fit-image" />
+        </div>
+        <div className="trending-caption">
+          <div className="fit-info">
+            <h3>{item.title}</h3>
+            <p>${item.price}</p>
+          </div>
         </div>
       </div>
     ));
@@ -126,7 +131,7 @@ const UploadPhoto = () => {
         <div className="right-panel">
           <div className="welcome-section">
             <h2 className="welcome-title">
-              Welcome to Addah <span className="heart-emoji">💗</span>
+              Welcome to Adaah <span className="heart-emoji">💗</span>
             </h2>
 
             <div className="file-upload-container">
@@ -150,7 +155,7 @@ const UploadPhoto = () => {
                   value={weather}
                   onChange={(e) => selectweather(e.target.value)}
                   >
-                  <option value="">{weather || "Select weather"}</option>
+                  <option value="">{weather || "Weather"}</option>
                   <option value="Summer">Summer</option>
                   <option value="Spring">Spring</option>
                   <option value="Rainy">Rainy</option>
@@ -167,7 +172,7 @@ const UploadPhoto = () => {
         value={occasion}
         onChange={(e) => selectOccasion(e.target.value)}
       >
-        <option value="">{occasion || "Select Occasion"}</option>
+        <option value="">{occasion || "Occasion"}</option>
         <option value="Casual">Casual</option>
         <option value="Formal">Formal</option>
         <option value="Party">Party</option>
