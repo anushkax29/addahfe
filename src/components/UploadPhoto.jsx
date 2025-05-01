@@ -1,8 +1,5 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router"
-import axios from "axios"
 import "./uploadPhoto.css"
 
 const UploadPhoto = () => {
@@ -12,40 +9,33 @@ const UploadPhoto = () => {
   const [occasion, setOccasion] = useState("Casual")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
-  const [isweatherOpen, setIsweatherOpen] = useState(false)
-  const [isOccasionOpen, setIsOccasionOpen] = useState(false)
+  const [data, setData] = useState([])
 
-    const [data, setData] = useState([]);
-  
-    const url = "https://api.escuelajs.co/api/v1/products?limit=2";
-    //const url = "https://fakestoreapi.com/products/category/women's%20clothing";
+  const url = "https://api.escuelajs.co/api/v1/products?limit=2"
 
-  
-    useEffect(() => {
-      async function getData() {
-        const dataJson = await fetch(url);
-        const resp = await dataJson.json();
-        console.log(resp)
-        setData(resp)
-      }
-      getData()
-    }, []);
+  useEffect(() => {
+    async function getData() {
+      const dataJson = await fetch(url)
+      const resp = await dataJson.json()
+      console.log(resp)
+      setData(resp)
+    }
+    getData()
+  }, [])
 
-    const eleList = data.map((item) => (
-      <div className="fit-card" key={item.id}>
-        <div className="trending-item">
-          <img src={item.images[0]} alt={item.title} className="fit-image" />
-        </div>
-        <div className="trending-caption">
-          <div className="fit-info">
-            <h3>{item.title}</h3>
-            <p>${item.price}</p>
-          </div>
+  const eleList = data.map((item) => (
+    <div className="fit-card" key={item.id}>
+      <div className="trending-item">
+        <img src={item.images[0]} alt={item.title} className="fit-image" />
+      </div>
+      <div className="trending-caption">
+        <div className="fit-info">
+          <h3>{item.title}</h3>
+          <p>${item.price}</p>
         </div>
       </div>
-    ));
-  
-  
+    </div>
+  ))
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -63,25 +53,16 @@ const UploadPhoto = () => {
     formData.append("weather", weather)
     formData.append("occasion", occasion)
 
-    // try {
-    //   const response = await axios.post("http://localhost:5000/upload", formData, {
-    //     headers: {
-    //       "Content-Type": "multipart/form-data",
-    //     },
-    //   })
+    const colors = ["black"]
 
-    //   if (response.data.success) {
-    //     navigate("/display-fit", { state: { data: response.data.data } })
-    //   } else {
-    //     setError(response.data.error || "Upload failed")
-    //   }
-    // } catch (err) {
-    //   setError(err.response?.data?.error || "Server error")
-    // } finally {
-    //   setLoading(false)
-    // }
-    navigate('/display-fit')
+    const query = `${occasion} ${weather} outfit in ${colors.join(" and ")}`
+    const encodedQuery = encodeURIComponent(query)
+    const pinterestUrl = `https://in.pinterest.com/search/pins/?q=${encodedQuery}`
 
+    console.log("Pinterest URL →", pinterestUrl)
+    window.open(pinterestUrl, "_blank")
+
+    setLoading(false)
   }
 
   const navigateToRandomFit = (e) => {
@@ -89,45 +70,27 @@ const UploadPhoto = () => {
     navigate("/recommended-fit")
   }
 
-  const toggleweatherDropdown = () => {
-    setIsweatherOpen(!isweatherOpen)
-    setIsOccasionOpen(false)
+  const handleLogin = () => {
+    navigate("/login")
   }
 
-  const toggleOccasionDropdown = () => {
-    setIsOccasionOpen(!isOccasionOpen)
-    setIsweatherOpen(false)
+  const handleSignup = () => {
+    navigate("/signup")
   }
 
-  const selectweather = (selectedweather) => {
-    setweather(selectedweather)
-    setIsweatherOpen(false)
-  }
-
-  const selectOccasion = (selectedOccasion) => {
-    setOccasion(selectedOccasion)
-    setIsOccasionOpen(false)
-  }
-
-  function handleLogin(){
-    navigate('/login')
-  }
-  function handleSignup(){
-    navigate('/signup')
-  }
-  function handleUserDetails(){
-
+  const handleUserDetails = () => {
+    navigate("/user-details")
   }
 
   return (
     <div className="whole">
-      <div className="top-nav">      
+      <div className="top-nav">
         <button onClick={handleLogin}>Log In</button>
-        <button onClick={handleSignup}>Sign Up</button> 
+        <button onClick={handleSignup}>Sign Up</button>
         <button onClick={handleUserDetails}>User Details</button>
       </div>
-      <div className="app-container">
 
+      <div className="app-container">
         <div className="right-panel">
           <div className="welcome-section">
             <h2 className="welcome-title">
@@ -146,59 +109,56 @@ const UploadPhoto = () => {
                 accept="image/*"
               />
             </div>
+
             <div className="filters-container">
               <div className="dropdown-left">
-                  {/* <label htmlFor="weather-select" className="dropdown-label">Weather</label> */}
-                  <select
+                <select
                   id="weather-select"
                   className="dropdown-button"
                   value={weather}
-                  onChange={(e) => selectweather(e.target.value)}
-                  >
-                  <option value="">{weather || "Weather"}</option>
+                  onChange={(e) => setweather(e.target.value)}
+                >
+                  <option value="">Weather</option>
                   <option value="Summer">Summer</option>
                   <option value="Spring">Spring</option>
                   <option value="Rainy">Rainy</option>
                   <option value="Fall">Fall</option>
                   <option value="Winter">Winter</option>
-                  </select>
+                </select>
               </div>
 
-    <div className="dropdown-right">
-      {/* <label htmlFor="occasion-select" className="dropdown-label">Occasion</label> */}
-      <select
-        id="occasion-select"
-        className="dropdown-button"
-        value={occasion}
-        onChange={(e) => selectOccasion(e.target.value)}
-      >
-        <option value="">{occasion || "Occasion"}</option>
-        <option value="Casual">Casual</option>
-        <option value="Formal">Formal</option>
-        <option value="Party">Party</option>
-        <option value="Festive">Festive</option>
-        <option value="Work">Work</option>
-      </select>
-    </div>
-  </div>
-
+              <div className="dropdown-right">
+                <select
+                  id="occasion-select"
+                  className="dropdown-button"
+                  value={occasion}
+                  onChange={(e) => setOccasion(e.target.value)}
+                >
+                  <option value="">Occasion</option>
+                  <option value="Casual">Casual</option>
+                  <option value="Formal">Formal</option>
+                  <option value="Party">Party</option>
+                  <option value="Festive">Festive</option>
+                  <option value="Work">Work</option>
+                </select>
+              </div>
+            </div>
 
             {error && <div className="error-message">{error}</div>}
 
-            <button className="get-look-button" onClick={handleSubmit} disabled={loading}>
-              <span className="sparkle">✨</span> {loading ? "Processing..." : "Wait for the Magic!"}
+            <button
+              className="get-look-button"
+              onClick={handleSubmit}
+              disabled={loading}
+            >
+              <span className="sparkle">✨</span>{" "}
+              {loading ? "Processing..." : "Wait for the Magic!"}
             </button>
           </div>
 
           <div className="trending-section">
             <h3 className="trending-title">Trending Looks</h3>
-            <div className="trending-grid">
-              <div className="trending-item"></div>
-              <div className="trending-item"></div>
-              <div className="trending-caption"></div>
-              <div className="trending-caption"></div>
-            </div>
-
+            <div className="trending-grid">   </div>
           </div>
         </div>
       </div>
