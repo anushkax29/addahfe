@@ -156,10 +156,10 @@ const UploadPhoto = () => {
             </button>
           </div>
 
-          <div className="trending-section">
+          {/* <div className="trending-section">
             <h3 className="trending-title">Trending Looks</h3>
             <div className="trending-grid">   </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -11,7 +11,7 @@ const DisplayFit = () => {
       {state?.data ? (
         <div>
           <img 
-            src={`http://localhost:5000/${state.data.image_path}`} 
+            src={`https://in.pinterest.com/search/pins/${state.data.image_path}`} 
             alt="Uploaded outfit"
             style={{ maxWidth: '500px', height: 'auto' }}
           />
